@@ -12,32 +12,19 @@ const tempDescansoCurto = 300
 const tempDescansoLongo = 900
 
 focoBt.addEventListener('click', () => {
-    html.setAttribute('data-contexto', 'foco')
-    banner.setAttribute('src', '/imagens/foco.png')
+    alterarContexto('foco')
 })
-
 curtoBt.addEventListener('click', () => {
-    html.setAttribute('data-contexto', 'descanso-curto')
-        banner.setAttribute('src', '/imagens/descanso-curto.png')
-
+    alterarContexto('descanso-curto')
 })
-
 longoBt.addEventListener('click', () => {
-    html.setAttribute('data-contexto', 'descanso-longo')
-        banner.setAttribute('src', '/imagens/descanso-longo.png')
-
+    alterarContexto('descanso-longo')
 })
 
-timerBt.addEventListener('click', () => {
-    const contexto = html.dataset.contexto
-    if(contexto === 'foco') {
-        console.log('foco')
-    }else if (contexto === 'descanso-curto') {
-        console.log('descanso curto')
-    }else {
-        console.log('Descanso longo')
-    }
-})
+function alterarContexto(contexto) {
+    html.setAttribute('data-context', contexto)
+    banner.setAttribute('src', `/imagens/${contexto}.png`)
+}
 
 
 
