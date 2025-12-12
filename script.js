@@ -6,6 +6,7 @@ const botaoIniciar = document.querySelector('.app__card-primary-button')
 const displayTempo = document.querySelector('#timer')
 const banner = document.querySelector('.app__image')
 const titulo = document.querySelector('.app__title')
+const botoes = document.querySelectorAll('.app__card-button')
 
 const tempFoco = 1500
 const tempDescansoCurto = 300
@@ -14,23 +15,20 @@ const tempDescansoLongo = 900
 focoBt.addEventListener('click', () => {
     alterarContexto('foco')
     focoBt.classList.add('active')
-    curtoBt.classList.remove('active')
-    longoBt.classList.remove('active')
 })
 curtoBt.addEventListener('click', () => {
     alterarContexto('descanso-curto')
     curtoBt.classList.add('active')
-    focoBt.classList.remove('active')
-    longoBt.classList.remove('active')
 })
 longoBt.addEventListener('click', () => {
     alterarContexto('descanso-longo')
     longoBt.classList.add('active')
-    curtoBt.classList.remove('active')
-    focoBt.classList.remove('active')
 })
 
 function alterarContexto(contexto) {
+    botoes.forEach(function (contexto) {
+        contexto.classList.remove('active')
+    })
     html.setAttribute('data-contexto', contexto)
     banner.setAttribute('src', `/imagens/${contexto}.png`)
     switch (contexto) {
